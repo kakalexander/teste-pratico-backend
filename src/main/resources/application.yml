@@ -1,0 +1,39 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: testepratico-api
+  
+  datasource:
+    url: ${SPRING_DATASOURCE_URL:jdbc:postgresql://localhost:5435/teste_pratico}
+    username: ${SPRING_DATASOURCE_USERNAME:adm}
+    password: ${SPRING_DATASOURCE_PASSWORD:adm123}
+    driver-class-name: org.postgresql.Driver
+  
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        format_sql: true
+  
+  security:
+    user:
+      name: admin
+      password: admin123
+
+# JWT Configuration
+jwt:
+  secret: ${JWT_SECRET:NCwcNkdgXfGmXG2y7Mtc3VVLOOXNU2U8zyspLnNX9MAv5MGn2bhi48AsLYEIuM6mYw0CCetdpEfweKNaYcf8lwO6it1AX5XrGj1h7rFA2ekQZUOecT3Jd8IFheSo0OmkLiRaB0mTbYdAqCpV4hdxbHs7CbGBQNk139VkKfMMBcSE9Caz5ictcKUWCoj4bEIdQakoPr00ZGPjfKKkXU8EyaD3028RpIEAOYyD2KGoyzopqCVLLZvBCJapmPga2OPcr1ujx1q8Wyv3SFvg7MPK6GSHb4vKFnUbQdMmP7u9CACD8QZsiwuG0kRo65mflXmprc3PWleMIsUwtAvbLzD445vnkpx8Pslk}
+  expiration: ${JWT_EXPIRATION:86400000}
+
+# Logging
+logging:
+  level:
+    com.produtos: DEBUG
+    org.springframework.security: DEBUG
+    org.hibernate.SQL: DEBUG
+    org.hibernate.type.descriptor.sql.BasicBinder: TRACE
